@@ -22,7 +22,7 @@
                 <a class="nav-link" href="home_guest.php">Home</a>
             </li>
             <li class = "nav-item">
-                <a class="nav-link" href="">Products</a>
+                <a class="nav-link" href="Products_guest.php">Products</a>
             </li>
             <li class = "nav-item">
                 <a class="nav-link" href="login.php">Login</a>

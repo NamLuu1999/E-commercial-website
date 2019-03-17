@@ -13,7 +13,7 @@
         </div>
         </div>
 
-        <div class="container-fluid bg-secondary text-white about-us">
+        <div class="container-fluid bg-secondary text-white about-us" style="color: ">
             <p class = "text-left">About us</p>
 
             <div class="row justify-content-center">

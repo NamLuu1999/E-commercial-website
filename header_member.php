@@ -1,6 +1,9 @@
 <?php
 // Start the session
 session_start();
+if (empty($_SESSION["username"]))
+    header("Location: home_guest.php")
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,9 +27,9 @@ session_start();
         </ul>
         <ul class = "navbar-nav ml-auto">
             <li class = "nav-item">
-                <a class="nav-link" href="home_guest.php">Home</a>
+                <a class="nav-link" href="home_member.php">Home</a>
             </li>
-            <li class = "dropdown">
+            <li class = "dropdown" style ="float:right;">
                 <a class="dropdown-toggle nav-link"  data-toggle ="dropdown" href="#"><span class = "caret"><?php echo $_SESSION["username"]; ?></span></a>
                 <div class ="dropdown-menu">
                     <a class="dropdown-item" href ="logout.php">Sign Out</a>
@@ -36,7 +39,7 @@ session_start();
 
             </li>
             <li class = "nav-item">
-                <a class="nav-link" href="Products.php">Products</a>
+                <a class="nav-link" href="products_member.php">Products</a>
             </li>
 
         </ul>
