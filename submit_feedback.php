@@ -1,10 +1,6 @@
 <?php
 //Connect to database
-$user = 'root';
-$password = 'Rfbmy6ccco';
-$db = '';
-$db = new mysqli('localhost',$user, $password, $db) or die("Not Connected");
-echo "Connected\r\n";
+require_once "config.php";
 
 // get the data from the form
 $name = $_POST['name'];
@@ -19,23 +15,25 @@ elseif ($email == "")
     $error_message = 'Please enter your email address';
 elseif ($comment == "")
     $error_message = 'Please write your suggestion';
-
+else {
+    $error_message = '';
+}
 
 
 // if an error message exists, go to the index page
     if ($error_message != '') {
-        include('index.php');
+        include('Feedback.php');
         exit(); }
 
 //Insert the feedback to database
-$sql = "INSERT INTO std_table (Name, Email, Feedback) VALUES ('$name', '$email', '$comment')";
+$sql = "INSERT INTO feedback (name, email, feedback) VALUES ('$name','$email','$comment');";
 
 
-if (!mysqli_query($db, $sql))
-{echo 'Thank you for you feedback';}
+if (mysqli_query($link, $sql))
+    {echo 'Thank you for you feedback';}
 else
-{echo 'There is an error, please try again';};
+    {echo 'There is an error, please try again';};
 
-header("refresh:2; url=Feedback.html");
-
+header("refresh:2; url=Feedback.php");
+mysqli_close($link);
 ?>

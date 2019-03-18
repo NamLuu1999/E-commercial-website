@@ -137,3 +137,39 @@ body{ font: 14px sans-serif; }
     padding-top:5px;
 }
 
+
+
+.row-modify {
+    border: solid;
+    width: 100%;
+    height: 450px;
+    margin: 15px auto;
+}
+
+.left {
+    display: inline-block;
+    width: 25%;
+    height: 50%;
+    border-right: solid;
+}
+
+.right {
+    display: inline-block;
+    width: 60%;
+
+    height: 100%;
+    float: right;
+}
+
+
+
+
+
+.label {
+    list-style-type: none;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+

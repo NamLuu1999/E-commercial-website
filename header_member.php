@@ -19,10 +19,10 @@ if (empty($_SESSION["username"]))
 </head>
 <body>
 <main class="page-container">
-    <header class="navbar navbar-expand-sm bg-dark justify-content-between navbar-dark fixed-top">
+    <header class="navbar navbar-expand-sm justify-content-between navbar-dark fixed-top " style="background-color: #689EB8">
         <ul class = "navbar-nav">
             <li class = "nav-item ">
-                <a class="nav-link" href="#"><img src ="" alt = "Logo" style=""></a>
+                <a class="nav-link" href="Feedback.php">Feedback</a>
             </li>
         </ul>
         <ul class = "navbar-nav ml-auto">

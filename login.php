@@ -72,8 +72,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["id"] = $id;
                             $_SESSION["username"] = $username;
 
-                            // Redirect user to welcome page
-                            header("Location: #home_member.php");
+
+                            // Redirect user
+                            if ($_SESSION["inventory_unlogged"] == 1)
+                            {
+                                header ("Location: products_member.php");
+                            }
+                            else {
+                                // Redirect user to welcome page
+                                header("Location: #home_member.php");
+                            }
                         } else{
                             // Display an error message if password is not valid
                             $password_err = "The password you entered was not valid.";
@@ -97,23 +105,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <style type="text/css">
-        body{ font: 14px sans-serif; }
-        .wrapper{ width: 350px; padding: 20px; padding-top: 70px; }
-    </style>
-</head>
+<title>Login</title>
 <?php include('header_guest.php');?>
 <body>
 
 
-<main class="container">
-    <div class="wrapper ">
+<main class="container-fluid justify-content-center">
+
+    <div class="wrapper container-fluid justify-content-center">
         <h2 >Login</h2>
         <p>Please fill in your credentials to login.</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
@@ -135,5 +134,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </div>
 </main>
 </body>
+
 <?php include('footer.php');?>
-</html>
+

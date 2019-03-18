@@ -142,11 +142,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
+                session_start();
+                $_SESSION["name"] = $first_name.' '.$last_name ;
+                $_SESSION["address"] = $address;
+                $_SESSION["postal_code"] = $postal_code;
+                $_SESSION["email"] = $email;
                 // Redirect to login page
                 header("Location: login.php");
             } else{
                 echo "Something went wrong. Please try again later.";
             }
+
+
             // Close statement
 
             mysqli_stmt_close($stmt);
@@ -171,90 +178,82 @@ function test_input($data) {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Sign Up</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <style type="text/css">
-        body{ font: 14px sans-serif; }
-        .wrapper{ width: 350px; padding: 70px 70px;}
-    </style>
-</head>
+<title>Sign Up</title>
 
 <?php include('header_guest.php');?>
 <body>
-<div class="wrapper ">
-    <h2>Sign Up</h2>
-    <p>Please fill this form to create an account.</p>
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+<main class="container-fluid justify-content-center">
+    <div class="wrapper container-fluid">
+        <h2>Sign Up</h2>
+        <p>Please fill this form to create an account.</p>
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 
-        <!--First name input field -->
-        <div class="form-group <?php echo (!empty($first_name_err)) ? 'has-error' : ''; ?>">
-            <label>First name</label>
-            <input type="text" name="first_name" class="form-control" value="<?php echo $first_name; ?>">
-            <span class="help-block"><?php echo $first_name_err; ?></span>
-        </div>
+            <!--First name input field -->
+            <div class="form-group <?php echo (!empty($first_name_err)) ? 'has-error' : ''; ?>">
+                <label>First name</label>
+                <input type="text" name="first_name" class="form-control" value="<?php echo $first_name; ?>">
+                <span class="help-block"><?php echo $first_name_err; ?></span>
+            </div>
 
-        <!--Last name input field -->
-        <div class="form-group <?php echo (!empty($last_name_err)) ? 'has-error' : ''; ?>">
-            <label>Last name</label>
-            <input type="text" name="last_name" class="form-control" value="<?php echo $last_name; ?>">
-            <span class="help-block"><?php echo $last_name_err; ?></span>
-        </div>
+            <!--Last name input field -->
+            <div class="form-group <?php echo (!empty($last_name_err)) ? 'has-error' : ''; ?>">
+                <label>Last name</label>
+                <input type="text" name="last_name" class="form-control" value="<?php echo $last_name; ?>">
+                <span class="help-block"><?php echo $last_name_err; ?></span>
+            </div>
 
-        <!--Email input field  -->
-        <div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
-            <label>Email</label>
-            <input type="email" name="email" class="form-control" value="<?php echo $email; ?>">
-            <span class="help-block"><?php echo $email_err; ?></span>
-        </div>
+            <!--Email input field  -->
+            <div class="form-group <?php echo (!empty($email_err)) ? 'has-error' : ''; ?>">
+                <label>Email</label>
+                <input type="email" name="email" class="form-control" value="<?php echo $email; ?>">
+                <span class="help-block"><?php echo $email_err; ?></span>
+            </div>
 
-        <!--User address input field  -->
-        <div class="form-group <?php echo (!empty($address_err)) ? 'has-error' : ''; ?>">
-            <label>Home address</label>
-            <input type="text" name="address" class="form-control" value="<?php echo $address; ?>">
-            <span class="help-block"><?php echo $address_err; ?></span>
-        </div>
+            <!--User address input field  -->
+            <div class="form-group <?php echo (!empty($address_err)) ? 'has-error' : ''; ?>">
+                <label>Home address</label>
+                <input type="text" name="address" class="form-control" value="<?php echo $address; ?>">
+                <span class="help-block"><?php echo $address_err; ?></span>
+            </div>
 
-        <!--Postal code input field  -->
-        <div class="form-group <?php echo (!empty($postal_code_err)) ? 'has-error' : ''; ?>">
-            <label>Postal code</label>
-            <input type="text" name="postal_code" class="form-control" value="<?php echo $postal_code; ?>">
-            <span class="help-block"><?php echo $postal_code_err; ?></span>
-        </div>
+            <!--Postal code input field  -->
+            <div class="form-group <?php echo (!empty($postal_code_err)) ? 'has-error' : ''; ?>">
+                <label>Postal code</label>
+                <input type="text" name="postal_code" class="form-control" value="<?php echo $postal_code; ?>">
+                <span class="help-block"><?php echo $postal_code_err; ?></span>
+            </div>
 
-        <!--User name input field -->
-        <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-            <label>Username</label>
-            <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
-            <span class="help-block"><?php echo $username_err; ?></span>
-        </div>
+            <!--User name input field -->
+            <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+                <label>Username</label>
+                <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
+                <span class="help-block"><?php echo $username_err; ?></span>
+            </div>
 
-        <!--Password input field  -->
-        <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-            <label>Password</label>
-            <input type="password" name="password" class="form-control" value="<?php echo $password; ?>">
-            <span class="help-block"><?php echo $password_err; ?></span>
-        </div>
+            <!--Password input field  -->
+            <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+                <label>Password</label>
+                <input type="password" name="password" class="form-control" value="<?php echo $password; ?>">
+                <span class="help-block"><?php echo $password_err; ?></span>
+            </div>
 
-        <!--Confirm password input field  -->
-        <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
-            <label>Confirm Password</label>
-            <input type="password" name="confirm_password" class="form-control" value="<?php echo $confirm_password; ?>">
-            <span class="help-block"><?php echo $confirm_password_err; ?></span>
-        </div>
+            <!--Confirm password input field  -->
+            <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
+                <label>Confirm Password</label>
+                <input type="password" name="confirm_password" class="form-control" value="<?php echo $confirm_password; ?>">
+                <span class="help-block"><?php echo $confirm_password_err; ?></span>
+            </div>
 
-        <!--Submit and Reset buttons  -->
-        <div class="form-group">
-            <input type="submit" class="btn btn-primary" value="Submit">
-            <input type="reset" class="btn btn-default" value="Reset">
-        </div>
+            <!--Submit and Reset buttons  -->
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Submit">
+                <input type="reset" class="btn btn-default" value="Reset">
+            </div>
 
-        <!--Redirect if the user already have an account  -->
-        <p>Already have an account? <a href="login.php">Login here</a>.</p>
+            <!--Redirect if the user already have an account  -->
+            <p>Already have an account? <a href="login.php">Login here</a>.</p>
 
-    </form>
-</div>
+        </form>
+    </div>
+</main>
 <?php include('footer.php');?>

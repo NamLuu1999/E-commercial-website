@@ -11,10 +11,10 @@
 
 <main class="page-container">
 
-    <header class="navbar navbar-expand-sm bg-dark justify-content-between navbar-dark fixed-top">
+    <header class="navbar navbar-expand-sm justify-content-between navbar-dark fixed-top" style="background-color: #689EB8">
         <ul class = "navbar-nav">
             <li class = "nav-item ">
-                <a class="nav-link" href="#"><img src ="" alt = "Logo" style=""></a>
+                <a class="nav-link" href="login.php">Feedback</a>
             </li>
         </ul>
         <ul class = "navbar-nav ml-auto">
@@ -22,7 +22,7 @@
                 <a class="nav-link" href="home_guest.php">Home</a>
             </li>
             <li class = "nav-item">
-                <a class="nav-link" href="Products_guest.php">Products</a>
+                <a class="nav-link" href="products_guest.php">Products</a>
             </li>
             <li class = "nav-item">
                 <a class="nav-link" href="login.php">Login</a>

@@ -8,20 +8,26 @@
                 <h1>DEAL OF 2019</h1>
                 <h1>IS HERE</h1>
 
-                <button class ="btn-transparent text-white good-font">Buy it now</button>
+
+                <a class ="btn btn-transparent text-white good-font" href = "products_member.php">Buy it now</a>
+                <span>$1000</span>
             </div>
         </div>
         </div>
 
-        <div class="container-fluid bg-secondary text-white about-us" style="color: ">
+        <div class="container-fluid  text-white about-us" style="background-color: #a79b94">
             <p class = "text-left">About us</p>
 
             <div class="row justify-content-center">
-                <div class ="col-6">
+                <div class ="col-5">
                     <img src="james.jpg"  alt = "James Mai" class ="rounded-circle col-3">
                     <div class = "col-5 text-left">Thien Phuoc Mai thmai@flemingcollege.ca</div>
                 </div>
-                <div class ="col-4"> Tien Nam Luu</div>
+                <div class ="col-6">
+                    <img src="luu.jpg"  alt = "Tien Nam Luu" class ="rounded-circle col-3">
+                    <div class = "col-5 text-left">Tien Nam Luu Tiennam.luuluu@flemingcollege.ca</div>
+                    <div></div>
+                </div>
             </div>
         </div>
 
