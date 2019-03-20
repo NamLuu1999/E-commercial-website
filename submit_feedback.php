@@ -34,6 +34,6 @@ if (mysqli_query($link, $sql))
 else
     {echo 'There is an error, please try again';};
 
-header("refresh:2; url=Feedback.php");
+header("refresh:5; url=Feedback.php");
 mysqli_close($link);
 ?>
