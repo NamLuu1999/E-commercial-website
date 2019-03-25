@@ -12,7 +12,7 @@ if (empty($_SESSION["username"]))
     <title>Mobile store</title>
     <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.css">
-    <link href="style.css" rel="stylesheet" type="text/css">
+    <link href="main.css" rel="stylesheet" type="text/css">
 
 
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>

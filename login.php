@@ -65,13 +65,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     if(mysqli_stmt_fetch($stmt)){
                         if(password_verify($password, $hashed_password)){
                             // Password is correct, so start a new session
+                            $query = "SELECT first_name, last_name, address, email, postal_code FROM users WHERE username = '$username'";
+                            $result = mysqli_query($link,$query);
+                            $row = mysqli_fetch_assoc($result);
                             session_start();
 
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["username"] = $username;
-
+                            //$_SESSION["name"] = $row["first_name"].' '.$row["last_name"] ;
+                            //$_SESSION["address"] = $row["address"];
+                            //$_SESSION["postal_code"] = $postal_code;
+                            //$_SESSION["email"] = $email;;
 
                             // Redirect user
                             if ($_SESSION["inventory_unlogged"] == 1)

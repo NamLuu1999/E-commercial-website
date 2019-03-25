@@ -4,7 +4,12 @@ require_once "config.php";
 
 
 // Initialize the session
-//session_start();
+if(!isset($_SESSION))
+{
+    session_start();
+}
+
+
 
 // Processing form data when form is submitted
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -12,50 +17,42 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     if (isset($_POST['1']))
     {
         $_SESSION['product_id'] = 1;
-        header("Location: checkout_1.php");
+
     }
     elseif (isset($_POST["2"]))
     {
         $_SESSION['product_id'] = 2;
-        header("Location: checkout_2.php");
+
     }
     elseif (isset($_POST["3"]))
     {
         $_SESSION['product_id'] = 3;
-        header("Location: checkout_3.php");
+
     }
     elseif (isset($_POST['4']))
     {
         $_SESSION['product_id'] = 4;
-        header("Location: checkout_4.php");
+
     }
     elseif (isset($_POST['5']))
     {
         $_SESSION['product_id'] = 5;
-        header("Location: checkout_5.php");
+
     }
     else
     {
         $_SESSION['product_id'] = 6;
-        header("Location: checkout_6.php");
+
     }
 
+    if ($_SESSION["product_id"] != 0)
+    {
+        header("Location: index.php");
+        //header("Location: checkout.php");
+    }
 
 }
 ?>
-
-
-
-function select()
-{
-    echo "The select function is called.";
-}
-function insert()
-{
-    echo "The insert function is called.";
-}
-
-?>.
 
 
 <?php
@@ -79,6 +76,7 @@ function get_product_details ()
 
 
 <div class ="row">
+
 <?php
     $products = get_product_details();
     foreach ($products as $ap)
@@ -108,7 +106,16 @@ function get_product_details ()
                         <div class="col-md-6 col-sm-12 col-xs-6 ">
 
                             <form action = "<?php echo $_SERVER["PHP_SELF"]; ?>" method="POST">
-                                <input name="<?php echo $id; ?>" type="submit" class="AddCart btn btn-info" value = "Buy Now">
+                                <label>Quantity:</label>
+                                <select name="itemqty">
+                                    <?php for($i = 1; $i <= 10; $i++) : ?>
+                                        <option value="<?php echo $i; ?>">
+                                            <?php echo $i; ?>
+                                        </option>
+                                    <?php endfor; ?>
+                                </select><br>
+                                <input type="hidden" name="action" value="add">
+                                <input name="<?php echo $id; ?>" type="submit" class="AddCart btn btn-info" value = "Add Product">
                             </form>
                         </div>
                     </div>
@@ -119,4 +126,7 @@ function get_product_details ()
 
     <?php };?>
 </div>
+
+
+
 <?php include('footer.php');?>

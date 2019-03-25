@@ -143,10 +143,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 session_start();
-                $_SESSION["name"] = $first_name.' '.$last_name ;
-                $_SESSION["address"] = $address;
-                $_SESSION["postal_code"] = $postal_code;
-                $_SESSION["email"] = $email;
+
                 // Redirect to login page
                 header("Location: login.php");
             } else{
