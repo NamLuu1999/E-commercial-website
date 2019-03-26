@@ -4,10 +4,8 @@ require_once "config.php";
 
 
 // Initialize the session
-if(!isset($_SESSION))
-{
-    session_start();
-}
+session_start();
+
 
 
 
@@ -17,32 +15,26 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     if (isset($_POST['1']))
     {
         $_SESSION['product_id'] = 1;
-
     }
     elseif (isset($_POST["2"]))
     {
         $_SESSION['product_id'] = 2;
-
     }
     elseif (isset($_POST["3"]))
     {
         $_SESSION['product_id'] = 3;
-
     }
     elseif (isset($_POST['4']))
     {
         $_SESSION['product_id'] = 4;
-
     }
     elseif (isset($_POST['5']))
     {
         $_SESSION['product_id'] = 5;
-
     }
     else
     {
         $_SESSION['product_id'] = 6;
-
     }
 
     if ($_SESSION["product_id"] != 0)
@@ -105,7 +97,8 @@ function get_product_details ()
                     <div class="row justify-content-end">
                         <div class="col-md-6 col-sm-12 col-xs-6 ">
 
-                            <form action = "<?php echo $_SERVER["PHP_SELF"]; ?>" method="POST">
+                            <form action = "index.php" method="POST">
+                                <input type="hidden" name="action" value="add">
                                 <label>Quantity:</label>
                                 <select name="itemqty">
                                     <?php for($i = 1; $i <= 10; $i++) : ?>
@@ -114,7 +107,7 @@ function get_product_details ()
                                         </option>
                                     <?php endfor; ?>
                                 </select><br>
-                                <input type="hidden" name="action" value="add">
+
                                 <input name="<?php echo $id; ?>" type="submit" class="AddCart btn btn-info" value = "Add Product">
                             </form>
                         </div>

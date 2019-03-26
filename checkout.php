@@ -21,8 +21,8 @@ $info = get_customer_info();
 foreach ($info as $ap) {
     $name = $ap['first_name'] .' '. $ap['last_name'];
     $address = $ap['address'];
-    $email = $ap['email'];
     $postal_code = $ap['postal_code'];
+    $email = $ap['email'];
 }
 // Query the products database and assigned it to an array
 function get_product_details ()
@@ -45,6 +45,8 @@ function get_product_details ()
         $image = $ap['image'];
 
     }
+
+
 ?>
 
 <?php include('header_member.php');?>

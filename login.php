@@ -74,15 +74,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["username"] = $username;
-                            //$_SESSION["name"] = $row["first_name"].' '.$row["last_name"] ;
-                            //$_SESSION["address"] = $row["address"];
-                            //$_SESSION["postal_code"] = $postal_code;
-                            //$_SESSION["email"] = $email;;
+
 
                             // Redirect user
                             if ($_SESSION["inventory_unlogged"] == 1)
                             {
                                 header ("Location: products_member.php");
+                            }
+                            elseif ($_POST["username"] == "admin"){
+                                header ("Location: products_admin.php");
                             }
                             else {
                                 // Redirect user to welcome page

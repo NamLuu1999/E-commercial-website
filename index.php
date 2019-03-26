@@ -68,6 +68,7 @@ switch($action) {
         include('cart_view.php');
         break;
     case 'show_add_item':
+
         include('products_member.php');
         break;
     case 'empty_cart':
