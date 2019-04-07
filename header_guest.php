@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +11,6 @@
 <body>
 
 <main class="page-container">
-
     <header class="navbar navbar-expand-sm justify-content-between navbar-dark fixed-top" style="background-color: #689EB8">
         <ul class = "navbar-nav">
             <li class = "nav-item ">
@@ -29,3 +29,4 @@
             </li>
         </ul>
     </header>
+

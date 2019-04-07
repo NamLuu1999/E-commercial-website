@@ -28,7 +28,7 @@ if (empty($_SESSION["username"]))
         </ul>
         <ul class = "navbar-nav ml-auto">
             <li class = "nav-item">
-                <a class="nav-link" href="home_member.php">Home</a>
+                <a class="nav-link" href="home_admin.php">Home</a>
             </li>
             <li class = "dropdown" style ="float:right;">
                 <a class="dropdown-toggle nav-link"  data-toggle ="dropdown" href="#"><span class = "caret"><?php echo $_SESSION["username"]; ?></span></a>
@@ -40,7 +40,7 @@ if (empty($_SESSION["username"]))
 
             </li>
             <li class = "nav-item">
-                <a class="nav-link" href="products_member.php">Products</a>
+                <a class="nav-link" href="products_admin.php">Products</a>
             </li>
             <li class = "nav-item">
                 <a class="nav-link" href="add_items.php">Add items</a>
@@ -48,7 +48,5 @@ if (empty($_SESSION["username"]))
             <li class = "nav-item">
                 <a class="nav-link" href="delete_item.php">Delete items</a>
             </li>
-            <li class="nav-item"><a class="nav-link" href=".?action=show_cart">View Cart</a></li>
-
         </ul>
     </header>

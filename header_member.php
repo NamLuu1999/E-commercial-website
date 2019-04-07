@@ -1,6 +1,5 @@
 <?php
-// Start the session
-session_start();
+
 if (empty($_SESSION["username"]))
     header("Location: home_guest.php")
 

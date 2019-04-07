@@ -12,6 +12,10 @@ session_start();
 // Create a cart array if needed
 if (empty($_SESSION['cart'])) { $_SESSION['cart'] = array(); }
 
+
+
+
+
 // Create a table of products
 
 function create_products_table ()
@@ -50,9 +54,9 @@ if ($action === NULL) {
 // Add or update cart as needed
 switch($action) {
     case 'add':
-        //$product_key = filter_input(INPUT_POST, 'productkey');
+        $product_key = filter_input(INPUT_POST, 'productkey');
         $item_qty = filter_input(INPUT_POST, 'itemqty');
-        add_item($_SESSION['product_id'], $item_qty);
+        add_item($product_key, $item_qty);
         include('cart_view.php');
         break;
     case 'update':
@@ -75,5 +79,12 @@ switch($action) {
         unset($_SESSION['cart12']);
         include('cart_view.php');
         break;
+    case 'check_out':
+        include('payment.php');
+        break;
+    case 'pay':
+        include('checkout.php');
+        break;
+
 }
 ?>

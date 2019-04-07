@@ -4,7 +4,7 @@
     <?php if (empty($_SESSION['cart12']) || count($_SESSION['cart12']) == 0) : ?>
         <p>There are no items in your cart.</p>
     <?php else: ?>
-        <form action="." method="post">
+        <form action="." method="post" style="padding-top: 100px">
             <input type="hidden" name="action" value="update">
             <table>
                 <tr id="cart_header">
@@ -36,10 +36,10 @@
                 <?php endforeach; ?>
                 <tr id="cart_footer">
                     <td colspan="3"><b>Subtotal</b></td>
-                    <td>$<?php echo get_subtotal(); ?></td>
+                    <td>$<?php echo number_format(get_subtotal(), 2);; ?></td>
 
                     <td colspan="3"><b>Tax</b></td>
-                    <td>$<?php echo get_subtotal(); ?></td>
+                    <td>$<?php echo number_format((float)get_subtotal()*0.13, 2); ?></td>
                 </tr>
                 <tr>
                     <td colspan="4" class="right">
@@ -54,6 +54,7 @@
     <?php endif; ?>
     <p><a href=".?action=show_add_item">Add Item</a></p>
     <p><a href=".?action=empty_cart">Empty Cart</a></p>
+    <p><a class="btn-block" href=".?action=check_out">Check out</a></p>
 
 
-<?php include("footer.php"); ?>
+

@@ -44,6 +44,6 @@ function get_subtotal () {
         $subtotal += $item['total'];
     }
     $subtotal_f = number_format($subtotal, 2);
-    return $subtotal_f;
+    return $subtotal;
 }
 ?>

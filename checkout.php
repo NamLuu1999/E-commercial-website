@@ -1,12 +1,11 @@
 <?php
 require_once "config.php";
-session_start();
+
 
 // Query the users database and assigned it to an array
 function get_customer_info ()
 {
     global $link;
-
     $data = array();
     $sql = "SELECT first_name, last_name, address, email, postal_code FROM users WHERE username = '{$_SESSION['username']}'";
     $result = mysqli_query($link, $sql);
