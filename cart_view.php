@@ -54,7 +54,7 @@
     <?php endif; ?>
     <p><a href=".?action=show_add_item">Add Item</a></p>
     <p><a href=".?action=empty_cart">Empty Cart</a></p>
-    <p><a class="btn-block" href=".?action=check_out">Check out</a></p>
+    <p><a href=".?action=check_out">Check out</a></p>
 
 
 

@@ -7,7 +7,7 @@ function get_customer_info ()
 {
     global $link;
     $data = array();
-    $sql = "SELECT first_name, last_name, address, email, postal_code FROM users WHERE username = '{$_SESSION['username']}'";
+    $sql = "SELECT first_name, last_name, email, postal_code FROM users WHERE username = '{$_SESSION['username']}'";
     $result = mysqli_query($link, $sql);
 
     while ($row = mysqli_fetch_assoc($result)){
@@ -19,31 +19,12 @@ function get_customer_info ()
 $info = get_customer_info();
 foreach ($info as $ap) {
     $name = $ap['first_name'] .' '. $ap['last_name'];
-    $address = $ap['address'];
     $postal_code = $ap['postal_code'];
     $email = $ap['email'];
 }
-// Query the products database and assigned it to an array
-function get_product_details ()
-{
-    global $link;
-    $items = array();
-    $sql = "SELECT * FROM products WHERE id = '{$_SESSION['product_id']}'";
-    $result = mysqli_query($link, $sql);
 
-    while ($ar = mysqli_fetch_assoc($result)){
-        $items[] = $ar;
-    }
-    return $items;
-}
-// Assign each column of data into a variable
-    $products = get_product_details();
-    foreach ($products as $ap) {
-        $products_name = $ap['name'];
-        $price = $ap['price'];
-        $image = $ap['image'];
 
-    }
+
 
 
 ?>

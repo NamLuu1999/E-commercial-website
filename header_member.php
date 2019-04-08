@@ -1,5 +1,8 @@
 <?php
-
+if(!isset($_SESSION))
+{
+    session_start();
+}
 if (empty($_SESSION["username"]))
     header("Location: home_guest.php")
 
@@ -33,10 +36,7 @@ if (empty($_SESSION["username"]))
                 <a class="dropdown-toggle nav-link"  data-toggle ="dropdown" href="#"><span class = "caret"><?php echo $_SESSION["username"]; ?></span></a>
                 <div class ="dropdown-menu">
                     <a class="dropdown-item" href ="logout.php">Sign Out</a>
-
                 </div>
-
-
             </li>
             <li class = "nav-item">
                 <a class="nav-link" href="products_member.php">Products</a>
