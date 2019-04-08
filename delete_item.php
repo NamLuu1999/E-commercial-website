@@ -18,11 +18,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     if(empty(trim($_POST["product_name"]))){
         $product_name_err = "Please enter the product name.";
     } else{
-        $product_name = trim($_POST["product_name"]);
+        $product_name = $_POST["product_name"];
     }
 
     //Delete the data in the product table
-    $sql = "DELETE FROM product WHERE product_name = $product_name";
+    $sql = "DELETE FROM `products` WHERE `name` = '$product_name'";
     if ($product_name_err =''){
         mysqli_query($link,$sql);
     }
