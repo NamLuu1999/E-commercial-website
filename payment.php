@@ -14,6 +14,7 @@ $cardholder_name= $card_number= $security_code = $deliver_address='';
 $cardholder_name_err = $card_number_err= $security_code_err =$deliver_address_err ='';
 
 // Processing form data when form is submitted
+/*
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
     if(empty(trim($_POST["cardholder_name"]))){
@@ -76,19 +77,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         //$sql = "INSERT INTO orders (cardholder_name,card_number,security_code) VALUES ($cardholder_name,$card_number,$security_code)";
         //$conn = mysqli_query($link, $sql);
         //if($conn === false){
-        //    die("ERROR: Could not connect. " . mysqli_connect_error());
+        //   die("ERROR: Could not connect. " . mysqli_connect_error());
         //}
-        //header ("Location: checkout.php");
+        header ("Location: checkout.php");
     }
 }
 
-
+*/
 ?>
 
 <?php include "header_member.php"; ?>
 
 <div class="wrapper">
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+    <form action="checkout.php" method="post">
 
         <div class="form-group" <?php echo (!empty($cardholder_name_err)) ? 'has-error' : ''; ?>>
             <label>Card holder name:</label>

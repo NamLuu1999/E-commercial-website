@@ -79,13 +79,8 @@ switch($action) {
         unset($_SESSION['cart12']);
         include('cart_view.php');
         break;
- /*
     case 'check_out':
-        include('payment.php');
+        header('Location: payment.php');
         break;
-    case 'Pay now':
-        include ('checkout.php');
-        break;
- */
 }
 ?>

@@ -20,13 +20,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     } else{
         $product_name = trim($_POST["product_name"]);
     }
-
-    //Delete the data in the product table
-    $sql = "DELETE FROM product WHERE product_name = $product_name";
     if ($product_name_err =''){
-        mysqli_query($link,$sql);
+        global $link;
+        //Delete the data in the product table
+        $sql = "DELETE FROM `products` WHERE `name` = '$product_name'";
+        $result = mysqli_query($link, $sql);
+        if (!$result){
+            die('Could not delete data: ' . mysqli_error());
+        }
+        echo "Deleted data successfully\n";
+        header("Location: product_admin.php");
     }
-
 }
 
 ?>
