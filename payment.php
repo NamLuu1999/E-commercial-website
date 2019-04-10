@@ -11,6 +11,7 @@ session_start();
 
 
 $user_name = $_SESSION['username'];
+
 $cardholder_name= $card_number= $security_code = $deliver_address='';
 $cardholder_name_err = $card_number_err= $security_code_err =$deliver_address_err ='';
 
@@ -81,14 +82,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
     if ($deliver_address_err == '' && $cardholder_name_err == '' && $card_number_err == '' && $security_code_err == '')
     {
-
-        $sql1 = "INSERT INTO `orders`(`deliver_address`,`cardholder_name`, `card_number`, `security_code`) VALUES ('$deliver_address', '$cardholder_name', '$card_number', '$security_code')";
+        mysqli_query($link,"SET foreign_key_checks = 0;");
+        $sql1 = "INSERT INTO `orders`('user_id',`deliver_address`,`cardholder_name`, `card_number`, `security_code`) VALUES ('$deliver_address', '$cardholder_name', '$card_number', '$security_code')";
         $conn = mysqli_query($link, $sql1);
         if(!$conn){
-            echo mysqli_error($link);
+            echo mysqli_error($link) or die (mysqli_error($link));
         }else{
             header ("Location: checkout.php");
         }
+        mysqli_query($link,"SET foreign_key_checks = 1;");
     }
 }
 
