@@ -23,7 +23,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
     //Delete the data in the product table
     $sql = "DELETE FROM `products` WHERE `name` = '$product_name'";
-    if ($product_name_err =''){
+    if ($product_name_err ==''){
         mysqli_query($link,$sql);
     }
 
@@ -34,10 +34,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 <div class="wrapper">
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         <div class="form-group" <?php echo (!empty($product_name_err)) ? 'has-error' : ''; ?>>
-            <label>Product name</label>
-            <input type="text" name="product_name" class="form-control" />
+            <label>Product name:</label>
+            <input type="text" name="product_name" class="form-control" >
             <span class="help-block"><?php echo $product_name_err; ?></span>
         </div>
+
         <div class="form-group">
             <input type="submit" class="btn btn-primary" value="Delete Item">
         </div>

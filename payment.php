@@ -7,9 +7,10 @@
  */
 
 require_once "config.php";
+session_start();
 
 
-
+$user_name = $_SESSION['username'];
 $cardholder_name= $card_number= $security_code = $deliver_address='';
 $cardholder_name_err = $card_number_err= $security_code_err =$deliver_address_err ='';
 
@@ -64,21 +65,30 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                 break;
             case '2':
                 //Collect the old address
-                $sql = "SELECT address FROM users WHERE username = '{$_SESSION['username']}'";
-                $deliver_address = mysqli_query($link, $sql);
+                $sql = "SELECT address FROM users WHERE username = '$user_name'";
+                $result = mysqli_query($link, $sql);
+                if (mysqli_num_rows($result) > 0)
+                {
+                    while($row = mysqli_fetch_assoc($result))
+                    {
+                        $deliver_address = $row['address'];
+                    }
+                }
+
                 break;
         }
     }
 
-    if ($card_number_err = '' && $security_code_err = '')
+    if ($deliver_address_err == '' && $cardholder_name_err == '' && $card_number_err == '' && $security_code_err == '')
     {
 
-        //$sql = "INSERT INTO orders (cardholder_name,card_number,security_code) VALUES ($cardholder_name,$card_number,$security_code)";
-        //$conn = mysqli_query($link, $sql);
-        //if($conn === false){
-        //    die("ERROR: Could not connect. " . mysqli_connect_error());
-        //}
-        //header ("Location: checkout.php");
+        $sql1 = "INSERT INTO `orders`(`deliver_address`,`cardholder_name`, `card_number`, `security_code`) VALUES ('$deliver_address', '$cardholder_name', '$card_number', '$security_code')";
+        $conn = mysqli_query($link, $sql1);
+        if(!$conn){
+            echo mysqli_error($link);
+        }else{
+            header ("Location: checkout.php");
+        }
     }
 }
 
@@ -108,16 +118,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
             <span class="help-block"><?php echo $security_code_err; ?></span>
         </div>
 
-        <!-- Default checked -->
-        <div class="custom-control custom-radio">
-            <input type="radio" class="custom-control-input" id="defaultChecked" name="radiosGroup" checked value="2" onClick = yesnoCheck()>
-            <label class="custom-control-label" for="defaultChecked">Deliver to my registered address</label>
-        </div>
-
         <!-- Default unchecked -->
         <div class="custom-control custom-radio">
-            <input type="radio" class="custom-control-input" id="defaultUnchecked" name="radiosGroup" value="1" onClick = yesnoCheck()>
-            <label class="custom-control-label" for="defaultUnchecked">Deliver to another address</label>
+            <input type="radio" class="custom-control-input" id="defaultUnchecked" name="radiosGroup"  value="2" onClick = yesnoCheck()>
+            <label class="custom-control-label" for="defaultUnchecked">Deliver to my registered address</label>
+        </div>
+
+        <!-- Default checked -->
+        <div class="custom-control custom-radio">
+            <input type="radio" class="custom-control-input" id="defaultChecked" name="radiosGroup"  checked value="1" onClick = yesnoCheck()>
+            <label class="custom-control-label" for="defaultChecked">Deliver to another address</label>
         </div>
 
 
@@ -128,12 +138,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         </div>
 
         <div class="form-group">
-            <input type="submit" name = "action" class="btn btn-primary" value="Pay now">
+            <input type="submit" name= "action" class="btn btn-primary" value="Pay now">
         </div>
     </form>
     <script>
         function yesnoCheck() {
-            if (document.getElementById('defaultUnchecked').checked) {
+            if (document.getElementById('defaultChecked').checked) {
                 document.getElementById('noId').style.visibility = 'visible';
             }
             else document.getElementById('noId').style.visibility = 'hidden';
