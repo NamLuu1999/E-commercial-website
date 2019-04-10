@@ -30,6 +30,7 @@ function get_product_details ()
         $price = $ap['price'];
         $image = $ap['image'];
         $id = $ap['id'];
+        $qty = $ap['quantity'];
 
 
 ?>
@@ -54,7 +55,7 @@ function get_product_details ()
                                 <input type="hidden" name="action" value="add">
                                 <label>Quantity:</label>
                                 <select name="itemqty">
-                                    <?php for($i = 1; $i <= 10; $i++) : ?>
+                                    <?php for($i = 1; $i <= $qty; $i++) : ?>
                                         <option value="<?php echo $i; ?>">
                                             <?php echo $i; ?>
                                         </option>

@@ -48,5 +48,8 @@ if (empty($_SESSION["username"]))
             <li class = "nav-item">
                 <a class="nav-link" href="delete_item.php">Delete items</a>
             </li>
+            <li class = "nav-item">
+                <a class="nav-link" href="update.php">Update inventory</a>
+            </li>
         </ul>
     </header>
