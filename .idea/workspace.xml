@@ -2,12 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ef9c8c07-fc03-4bd4-9586-0df276bcf684" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/update.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/add_items.php" beforeDir="false" afterPath="$PROJECT_DIR$/add_items.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/delete_item.php" beforeDir="false" afterPath="$PROJECT_DIR$/delete_item.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/header_admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/header_admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/products_admin.php" beforeDir="false" afterPath="$PROJECT_DIR$/products_admin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/products_guest.php" beforeDir="false" afterPath="$PROJECT_DIR$/products_guest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/products_member.php" beforeDir="false" afterPath="$PROJECT_DIR$/products_member.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/update.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -35,37 +34,28 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/update.php">
+        <entry file="file://$PROJECT_DIR$/products_admin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="419">
-              <caret line="75" column="11" lean-forward="true" selection-start-line="75" selection-start-column="11" selection-end-line="75" selection-end-column="11" />
+            <state relative-caret-position="277">
+              <caret line="28" column="35" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/header_admin.php">
+        <entry file="file://$PROJECT_DIR$/products_guest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="538">
-              <caret line="52" column="17" lean-forward="true" selection-start-line="52" selection-start-column="17" selection-end-line="52" selection-end-column="17" />
+            <state relative-caret-position="209">
+              <caret line="32" column="27" selection-start-line="32" selection-start-column="27" selection-end-line="32" selection-end-column="27" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/register.php">
+        <entry file="file://$PROJECT_DIR$/products_member.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="209" column="12" lean-forward="true" selection-start-line="209" selection-start-column="12" selection-end-line="213" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/delete_item.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="32" column="4" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="43" />
+            <state relative-caret-position="311">
+              <caret line="32" column="8" lean-forward="true" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -145,7 +135,6 @@
         <option value="$PROJECT_DIR$/Products.php" />
         <option value="$PROJECT_DIR$/Products_member.php" />
         <option value="$PROJECT_DIR$/Products_guest.php" />
-        <option value="$PROJECT_DIR$/products_guest.php" />
         <option value="$PROJECT_DIR$/redirect.php" />
         <option value="$PROJECT_DIR$/style.css" />
         <option value="$PROJECT_DIR$/style.css" />
@@ -165,7 +154,6 @@
         <option value="$PROJECT_DIR$/header_cart.php" />
         <option value="$PROJECT_DIR$/check.php" />
         <option value="$PROJECT_DIR$/header_guest.php" />
-        <option value="$PROJECT_DIR$/products_admin.php" />
         <option value="$PROJECT_DIR$/home_admin.php" />
         <option value="$PROJECT_DIR$/main.css" />
         <option value="$PROJECT_DIR$/login.php" />
@@ -176,9 +164,11 @@
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/add_items.php" />
         <option value="$PROJECT_DIR$/delete_item.php" />
-        <option value="$PROJECT_DIR$/products_member.php" />
         <option value="$PROJECT_DIR$/header_admin.php" />
+        <option value="$PROJECT_DIR$/products_member.php" />
         <option value="$PROJECT_DIR$/update.php" />
+        <option value="$PROJECT_DIR$/products_guest.php" />
+        <option value="$PROJECT_DIR$/products_admin.php" />
       </list>
     </option>
   </component>
@@ -316,7 +306,8 @@
       <workItem from="1554823681282" duration="5006000" />
       <workItem from="1554832836546" duration="904000" />
       <workItem from="1554847948967" duration="664000" />
-      <workItem from="1554901909312" duration="14053000" />
+      <workItem from="1554901909312" duration="14111000" />
+      <workItem from="1554992013404" duration="755000" />
     </task>
     <task id="LOCAL-00001" summary="Midterm">
       <created>1553641098909</created>
@@ -360,11 +351,18 @@
       <option name="project" value="LOCAL" />
       <updated>1554924264780</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="James 5th commit">
+      <created>1554927419473</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1554927419473</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="184797000" />
+    <option name="totallyTimeSpent" value="185610000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -379,7 +377,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1684435" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17004265" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -395,7 +393,7 @@
       <window_info anchor="bottom" id="Terminal" order="10" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50067115" side_tool="true" weight="0.3297587" />
       <window_info anchor="bottom" id="PHP-CGI Server" order="12" />
-      <window_info anchor="bottom" id="Messages" order="13" sideWeight="0.49932885" visible="true" weight="0.32502708" />
+      <window_info active="true" anchor="bottom" id="Messages" order="13" sideWeight="0.49932885" visible="true" weight="0.32502708" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -476,7 +474,8 @@
     <MESSAGE value="James 2nd commit" />
     <MESSAGE value="James 3rd commit" />
     <MESSAGE value="James 4th commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="James 4th commit" />
+    <MESSAGE value="James 5th commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="James 5th commit" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/products_display_logged.php" />
@@ -625,38 +624,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/products_guest.php">
+    <entry file="file://$PROJECT_DIR$/payment.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="41" column="20" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
+        <state relative-caret-position="1241">
+          <caret line="78" column="22" lean-forward="true" selection-start-line="78" selection-start-column="22" selection-end-line="78" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/products_admin.php">
+    <entry file="file://$PROJECT_DIR$/header_admin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="46" column="74" selection-start-line="46" selection-start-column="74" selection-end-line="46" selection-end-column="74" />
+        <state relative-caret-position="884">
+          <caret line="52" column="17" selection-start-line="52" selection-start-column="17" selection-end-line="52" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/products_member.php">
+    <entry file="file://$PROJECT_DIR$/register.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="59" column="61" lean-forward="true" selection-start-line="59" selection-start-column="61" selection-end-line="59" selection-end-column="61" />
+        <state relative-caret-position="3468">
+          <caret line="209" column="12" selection-start-line="209" selection-start-column="12" selection-end-line="213" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/update.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="54" column="21" lean-forward="true" selection-start-line="54" selection-start-column="21" selection-end-line="54" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/add_items.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="16" column="39" lean-forward="true" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/payment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1241">
-          <caret line="78" column="22" lean-forward="true" selection-start-line="78" selection-start-column="22" selection-end-line="78" selection-end-column="22" />
+        <state relative-caret-position="198">
+          <caret line="78" column="64" selection-start-line="78" selection-start-column="64" selection-end-line="78" selection-end-column="64" />
         </state>
       </provider>
     </entry>
@@ -667,24 +666,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/register.php">
+    <entry file="file://$PROJECT_DIR$/products_member.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="209" column="12" lean-forward="true" selection-start-line="209" selection-start-column="12" selection-end-line="213" selection-end-column="18" />
+        <state relative-caret-position="311">
+          <caret line="32" column="8" lean-forward="true" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/header_admin.php">
+    <entry file="file://$PROJECT_DIR$/products_guest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="538">
-          <caret line="52" column="17" lean-forward="true" selection-start-line="52" selection-start-column="17" selection-end-line="52" selection-end-column="17" />
+        <state relative-caret-position="209">
+          <caret line="32" column="27" selection-start-line="32" selection-start-column="27" selection-end-line="32" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/update.php">
+    <entry file="file://$PROJECT_DIR$/products_admin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="75" column="11" lean-forward="true" selection-start-line="75" selection-start-column="11" selection-end-line="75" selection-end-column="11" />
+        <state relative-caret-position="277">
+          <caret line="28" column="35" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
         </state>
       </provider>
     </entry>

@@ -32,7 +32,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     
     $product_name = $_POST["product_name"];
 
-    if (empty($_POST["qty"])) {
+    if (!isset($_POST["qty"])) {
         $qty_err = "Quantity is required";
     }
     else{
