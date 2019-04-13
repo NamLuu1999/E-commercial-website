@@ -17,7 +17,7 @@ function get_product_details ()
 {
     global $link;
     $items = array();
-    $sql = "SELECT `name` FROM products";
+    $sql = "SELECT name FROM products";
     $result = mysqli_query($link, $sql);
 
     while ($ar = mysqli_fetch_assoc($result)){
@@ -25,7 +25,14 @@ function get_product_details ()
     }
     return $items;
 }
-
+function mysql_get_var($query,$y=0){
+    global $link;
+    $result = mysqli_query($link ,$query);
+    $row = mysqli_fetch_array($result);
+    mysqli_free_result($result);
+    $record = $row[$y];
+    return $record;
+}
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
@@ -33,10 +40,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     $product_name = $_POST["product_name"];
 
 
-    //Delete the data in the product table
-    $sql = "DELETE FROM `products` WHERE `name` = '$product_name'";
-    mysqli_query($link,$sql);
 
+    //Delete the data in the file
+    $image_dir = 'images';
+    $image_dir_path = getcwd() . DIRECTORY_SEPARATOR . $image_dir;
+    $filename = mysql_get_var("SELECT `image` FROM `products` WHERE `name` = '$product_name'");
+    $target = $image_dir_path . DIRECTORY_SEPARATOR . $filename;
+    if (file_exists($target)){
+        unlink($target);
+    }
+
+    //Delete the data in the product table
+//    $sql = "DELETE FROM `products` WHERE `name` = '$product_name'";
+  //  mysqli_query($link,$sql);
 
 }
 
@@ -50,9 +66,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                 <?php
                 $products = get_product_details();
                 foreach ($products as $ap)
-                {
-                $name = $ap['name'];
-                ?>
+                {$name = $ap['name']; ?>
                 <option value = "<?php echo $name ?>" > <?php echo $name?> </option>
                 <?php };?>
             </select>

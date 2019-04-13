@@ -26,7 +26,9 @@ function get_product_details ()
             $price = $ap['price'];
             $image = $ap['image'];
             $id = $ap['id'];
+            $qty = $ap['quantity'];
 
+            if ($qty > 0) {
 
             ?>
 
@@ -52,6 +54,7 @@ function get_product_details ()
                 </div>
             </div>
 
-        <?php };?>
+        <?php }
+            };?>
     </div>
 <?php include('footer.php');?>

@@ -30,7 +30,9 @@ foreach ($products as $ap)
     $price = $ap['price'];
     $image = $ap['image'];
     $id = $ap['id'];
+    $qty = $ap['quantity'];
 
+    if ($qty > 0) {
 
     ?>
     <div class="col-md-3 col-sm-3 col-xs-12" style ="padding: 70px 60px;">
@@ -56,7 +58,9 @@ foreach ($products as $ap)
         </div>
     </div>
 
-<?php };?>
+        <?php
+    }
+};?>
 </div>
 
 

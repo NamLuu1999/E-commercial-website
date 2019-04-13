@@ -11,8 +11,8 @@
 require_once "config.php";
 
 // Define variables and initialize with empty values
-$image = $product_name = $price = $quantity = "";
-$image_err=$product_name_err= $price_err = $quantity_err = "";
+$image=$product_name = $price = $description= $quantity = "";
+$image_err=$product_name_err= $price_err = $description_err =  $quantity_err = "";
 
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST")
@@ -36,6 +36,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         $price = trim($_POST["price"]);
     }
 
+    if(empty(trim($_POST["description"]))){
+        $description_err = "Please enter username.";
+    } else{
+        $description = trim($_POST["username"]);
+    }
 
     if(empty(trim($_POST["quantity"]))){
         $quantity_err = "Please enter the quantity.";
@@ -71,7 +76,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
 
     //Stores the submitted data into the product table
-    $sql = "INSERT INTO `products` (`name`,`price`,`image`,`quantity`) VALUES ('$product_name','$price','$image','$quantity')";
+    $sql = "INSERT INTO product (product_name,price,description,image,quantity) VALUES ($product_name,$price,$description,$image,$quantity)";
     if ($image_err = '')
     {
         if(mysqli_query($link,$sql))
@@ -98,20 +103,31 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         </div>
         <div class="form-group <?php echo (!empty($price_err)) ? 'has-error' : ''; ?>">
             <label>Price</label>
-            <input type="number" name="price" class="form-control">
+            <input type="password" name="price" class="form-control">
             <span class="help-block"><?php echo $price_err; ?></span>
+        </div>
+        <div class="form-group <?php echo (!empty($description_err)) ? 'has-error' : ''; ?>">
+            <label>Description</label>
+            <input type="password" name="description" class="form-control">
+            <span class="help-block"><?php echo $description_err; ?></span>
+        </div>
+        <div class="form-group <?php echo (!empty($description_err)) ? 'has-error' : ''; ?>">
+            <label>Description</label>
+            <input type="password" name="description" class="form-control">
+            <span class="help-block"><?php echo $description_err; ?></span>
         </div>
 
         <div class="form-group <?php echo (!empty($quantity_err)) ? 'has-error' : ''; ?>">
             <label>Quantity</label>
-            <input type="number" name="quantity" class="form-control">
+            <input type="password" name="quantity" class="form-control">
             <span class="help-block"><?php echo $quantity_err; ?></span>
         </div>
 
         <div class="input-default-wrapper mt-3">
             <span class="input-group-text mb-3" id="input">Upload</span>
             <input type="file" id="file-with-current" class="input-default-js" name="uploaded_file" id="uploaded_file">
-            <label class="label-for-default-js rounded-right mb-3" for="file-with-current"><span class="span-choose-file">Choose file</span>
+            <label class="label-for-default-js rounded-right mb-3" for="file-with-current"><span class="span-choose-file">Choose
+      file</span>
                 <div class="float-right span-browse">Browse</div>
             </label>
             <span class="help-block"><?php if ($image_err = ''){echo $image_success;} ?></span>

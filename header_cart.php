@@ -1,7 +1,7 @@
 <?php
 
 if (empty($_SESSION["username"]))
-    header("Location: home_guest.php")
+    header("Location: home_guest.php");
 
 ?>
 <!DOCTYPE html>
