@@ -37,6 +37,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         $card_number_err = "Please enter numbers only";
     }else
     {
+
         $card_number = $_POST["card_number"];
     }
 
