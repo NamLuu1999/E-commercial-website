@@ -6,11 +6,14 @@ session_start();
 // Store data in session variable
 $_SESSION["inventory_unlogged"] = 1;
 
+$id = $_GET['id'];
+
+
 function get_product_details ()
 {
-    global $link;
+    global $link, $id;
     $items = array();
-    $sql = "SELECT * FROM products";
+    $sql = "SELECT * FROM products WHERE `id` = '$id'";
     $result = mysqli_query($link, $sql);
 
     while ($ar = mysqli_fetch_assoc($result)){
