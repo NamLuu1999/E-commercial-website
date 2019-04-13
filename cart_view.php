@@ -37,9 +37,6 @@
                 <tr id="cart_footer">
                     <td colspan="3"><b>Subtotal</b></td>
                     <td>$<?php echo number_format(get_subtotal(), 2);; ?></td>
-
-                    <td colspan="3"><b>Tax</b></td>
-                    <td>$<?php echo number_format((float)get_subtotal()*0.13, 2); ?></td>
                 </tr>
                 <tr>
                     <td colspan="4" class="right">

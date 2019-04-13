@@ -17,7 +17,7 @@ function get_product_details ()
 {
     global $link;
     $items = array();
-    $sql = "SELECT name FROM products";
+    $sql = "SELECT `name` FROM products";
     $result = mysqli_query($link, $sql);
 
     while ($ar = mysqli_fetch_assoc($result)){

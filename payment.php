@@ -82,11 +82,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
     if ($deliver_address_err == '' && $cardholder_name_err == '' && $card_number_err == '' && $security_code_err == '')
     {
-        $sql1 = "INSERT INTO `orders`(`user_id`,`deliver_address`,`cardholder_name`, `card_number`, `security_code`) VALUES ('$user_id','$deliver_address', '$cardholder_name', '$card_number', '$security_code')";
+        $unique_id = time() . mt_rand() . $user_id;
+        $_SESSION["unique_id"] = $unique_id;
+        $sql1 = "INSERT INTO `orders`(`user_id`,`deliver_address`,`cardholder_name`, `card_number`, `security_code`,`unique_id`) VALUES ('$user_id','$deliver_address', '$cardholder_name', '$card_number', '$security_code', '$unique_id')";
         $conn = mysqli_query($link, $sql1);
         if(!$conn){
             echo mysqli_error($link) or die (mysqli_error($link));
         }else{
+
             header ("Location: checkout.php");
         }
     }
