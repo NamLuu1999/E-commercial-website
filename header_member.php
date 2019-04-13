@@ -4,8 +4,9 @@ if(!isset($_SESSION))
     session_start();
 }
 if (empty($_SESSION["username"]))
-    header("Location: home_guest.php")
-
+    header("Location: home_guest.php");
+if ($_SESSION["username"] == 'admin')
+    header("Location: home_admin.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
