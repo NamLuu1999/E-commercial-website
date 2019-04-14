@@ -25,14 +25,6 @@ function get_product_details ()
     }
     return $items;
 }
-function mysql_get_var($query,$y=0){
-    global $link;
-    $result = mysqli_query($link ,$query);
-    $row = mysqli_fetch_array($result);
-    mysqli_free_result($result);
-    $record = $row[$y];
-    return $record;
-}
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
@@ -51,8 +43,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     }
 
     //Delete the data in the product table
-//    $sql = "DELETE FROM `products` WHERE `name` = '$product_name'";
-  //  mysqli_query($link,$sql);
+    $sql = "DELETE FROM `products` WHERE `name` = '$product_name'";
+    mysqli_query($link,$sql);
 
 }
 

@@ -1,0 +1,221 @@
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background: black;
+}
+.container {
+    position: relative;
+    left: 40%;
+    width: 320px;
+    height: 600px;
+    margin-top: 50px;
+    background: rgba(0,0,0,.1);
+    transform: rotate(-30deg) skew(25deg) scale(.8);
+    transition: 0.5s;
+}
+.container img
+{
+    position: absolute;
+    width: 100%;
+    transition: 0.5s;
+}
+.container:hover img:nth-child(4)
+{
+    transform: translate(160px,-160px);
+    opacity: 1;
+}
+.container:hover img:nth-child(3)
+{
+    transform: translate(120px,-120px);
+    opacity: .8;
+}
+.container:hover img:nth-child(2)
+{
+    transform: translate(80px,-80px);
+    opacity: .6;
+}
+.container:hover img:nth-child(1)
+{
+    transform: translate(40px,-40px);
+    opacity: .4;
+}
+
+ul.navigation{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+ul.navigation li
+{
+    list-style: none;
+    margin: 0 20px;
+    transition: 0.5s;
+
+}
+ul.navigation li a{
+    display: block;
+    position: relative;
+    text-decoration: none;
+    padding: 5px;
+    font-size: 14px;
+    font-family: sans-serif;
+    color: #fff;
+    text-transform: uppercase;
+    transition: 0.5s;
+}
+ul.navigation:hover li a
+{
+    transform: scale(1.5);
+    opacity: .2;
+    filter: blur(5px);
+
+}
+ul.navigation li a:hover
+{
+    transform: scale(2);
+    opacity: 1;
+    filter: blur(0);
+
+}
+ul.navigation li a:before
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    Left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ff497c;
+    transition: 0.5s;
+    transform-origin: right;
+    transform: scaleX(0);
+    z-index: -1;
+}
+ul.navigation li a:hover:before
+{
+    transition: transform 0.5s;
+    transform-origin: left;
+    transform: scaleX(1);
+
+}
+ul.social
+{
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+ul.social li
+{
+    position: relative;
+    list-style: none;
+    width: 50px;
+    height: 50px;
+    margin:0 30px;
+    transform: rotate(-30deg) skew(25deg);
+    background: #ccc;
+}
+ul.social li span
+{
+    position: absolute;
+    top: 0;
+    Left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    transition: 0.5s;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 30px !important;
+}
+ul.social li:hover span:nth-child(5)
+{
+    transform: translate(40px,-40px);
+    opacity: 1;
+}
+ul.social li:hover span:nth-child(4)
+{
+    transform: translate(30px,-30px);
+    opacity: .8;
+}
+ul.social li:hover span:nth-child(3)
+{
+    transform: translate(20px,-20px);
+    opacity: .6;
+}
+ul.social li:hover span:nth-child(2)
+{
+    transform: translate(10px,-10px);
+    opacity: .4;
+}
+ul.social li:hover span:nth-child(1)
+{
+    transform: translate(0,0);
+    opacity: .2;
+}
+ul.social li:nth-child(1) span
+{
+    background: #3b5999;
+}
+ul.social li:nth-child(2) span
+{
+    background: #55acee;
+}
+ul.social li:nth-child(3) span
+{
+    background: #dd4b39;
+}
+ul.social li:nth-child(4) span
+{
+    background: #0077b5;
+}
+ul.social li:nth-child(5) span
+{
+    background: #e4405f;
+}
+ul.social li:hover span
+{
+    box-shadow: -1px 1px 1px rgba(0,0,0,.1);
+}
+.slogan {
+    position: relative;
+    top: 25px;
+    display: flex;
+    justify-content: center;
+
+}
+p{
+    position: relative;
+    font-family: sans-serif;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 2em;
+    Letter-spacing: 4px;
+    overflow: hidden;
+    background: linear-gradient(90deg,#000,#fff,#000);
+    background-repeat: no-repeat;
+    background-size: 80%;
+    animation: animate 3s linear infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: rgba(255,255,255,0);
+}
+
+
+@keyframes animate {
+    0%
+    {
+        background-position: -500%;
+    }
+    100%
+    {
+        background-position: 500%;
+    }
+}

@@ -38,10 +38,11 @@ $category = get_category();
 </head>
 <body>
 <main class="page-container">
-    <header class="navbar navbar-expand-sm justify-content-between navbar-dark fixed-top " style="background-color: #689EB8">
+    <header class="navbar navbar-expand-sm justify-content-between navbar-dark fixed-top " style="background-color: #000000; font-size: 18px; color: #FFFFFF;">
         <ul class = "navbar-nav">
             <li class = "nav-item ">
-                <a class="nav-link" href="Feedback.php">Feedback</a>
+                <a class="nav-link" href="home_admin.php" style="padding: 0;">
+                    <img src="logo.png" alt = "Logo" style="height: 40px; width: 130px;"></a>
             </li>
         </ul>
         <ul class = "navbar-nav ml-auto">
@@ -76,7 +77,10 @@ $category = get_category();
                 <a class="nav-link" href="delete_item.php">Delete items</a>
             </li>
             <li class = "nav-item">
-                <a class="nav-link" href="update.php">Update</a>
+                <a class="nav-link" href="update.php">Update Inventory</a>
+            </li>
+            <li class = "nav-item">
+                <a class="nav-link" href="add_category.php">Update Category</a>
             </li>
         </ul>
     </header>

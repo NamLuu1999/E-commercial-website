@@ -29,15 +29,17 @@ $category = get_category();
         .dropdown:hover>.dropdown-menu {
             display: block;
         }
+
     </style>
 </head>
 <body>
 
 <main class="page-container">
-    <header class="navbar navbar-expand-sm justify-content-between navbar-dark fixed-top" style="background-color: #689EB8">
+    <header class="navbar navbar-expand-sm justify-content-between navbar-dark fixed-top" style="background-color: #000000; font-size: 18px; color: #FFFFFF;">
         <ul class = "navbar-nav">
             <li class = "nav-item ">
-                <a class="nav-link" href="Feedback.php">Feedback</a>
+                <a class="nav-link" href="home_guest.php" style="padding: 0;">
+                    <img src="logo.png" alt = "Logo" style="height: 40px; width: 130px;"></a>
             </li>
         </ul>
         <ul class = "navbar-nav ml-auto">
@@ -58,6 +60,9 @@ $category = get_category();
             </li>
             <li class = "nav-item">
                 <a class="nav-link" href="login.php">Login</a>
+            </li>
+            <li class = "nav-item ">
+                <a class="nav-link" href="Feedback.php">Feedback</a>
             </li>
         </ul>
     </header>
