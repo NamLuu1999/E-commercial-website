@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.css">
     <link href="style.css" rel="stylesheet" type="text/css">
+    <style>
+        .dropdown:hover>.dropdown-menu {
+            display: block;
+        }
+    </style>
 </head>
 <body>
 
@@ -21,8 +26,13 @@
             <li class = "nav-item">
                 <a class="nav-link" href="home_guest.php">Home</a>
             </li>
-            <li class = "nav-item">
-                <a class="nav-link" href="products_guest.php">Products</a>
+            <li class = "dropdown">
+                <a class="dropdown-toggle nav-link"  data-toggle ="dropdown" href="products_guest.php"><span class = "caret">Products</span></a>
+                <div class ="dropdown-menu">
+                    <a class="dropdown-item" href ="products_guest.php?id=Iphone">Iphone</a>
+                    <a class="dropdown-item" href ="products_guest.php?id=Samsung">Samsung</a>
+                    <a class="dropdown-item" href ="products_guest.php?id=BKAV">BKAV</a>
+                </div>
             </li>
             <li class = "nav-item">
                 <a class="nav-link" href="login.php">Login</a>

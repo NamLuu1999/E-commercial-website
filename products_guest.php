@@ -6,13 +6,24 @@ session_start();
 // Store data in session variable
 $_SESSION["inventory_unlogged"] = 1;
 
+$id = $_GET['id'];
+
+if ($id == 'Iphone'){
+    $sql_products = "SELECT * FROM `products` INNER JOIN `categories` WHERE categories.id = products.cat_id AND categories.name = 'Iphone'";
+}   elseif ($id == 'Samsung'){
+    $sql_products = "SELECT * FROM `products` INNER JOIN `categories` WHERE categories.id = products.cat_id AND categories.name = 'Samsung'";
+}   elseif ($id == 'BKAV'){
+    $sql_products = "SELECT * FROM `products` INNER JOIN `categories` WHERE categories.id = products.cat_id AND categories.name = 'BKAV'";
+}   else {
+    $sql_products = "SELECT * FROM `products`";
+}
+
 function get_product_details ()
 {
     global $link;
+    global $sql_products;
     $items = array();
-    $sql = "SELECT * FROM products";
-    $result = mysqli_query($link, $sql);
-
+    $result = mysqli_query($link, $sql_products);
     while ($ar = mysqli_fetch_assoc($result)){
         $items[] = $ar;
     }
