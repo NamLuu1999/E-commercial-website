@@ -1,3 +1,21 @@
+<?php
+require_once 'config.php';
+
+function get_category ()
+{
+    global $link;
+    $cat_names = array();
+    $sql_category = "SELECT `name` FROM `categories`";
+    $result = mysqli_query($link, $sql_category);
+
+    while ($ar = mysqli_fetch_assoc($result)){
+        $cat_names[] = $ar;
+    }
+    return $cat_names;
+}
+
+$category = get_category();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +37,7 @@
     <header class="navbar navbar-expand-sm justify-content-between navbar-dark fixed-top" style="background-color: #689EB8">
         <ul class = "navbar-nav">
             <li class = "nav-item ">
-                <a class="nav-link" href="login.php">Feedback</a>
+                <a class="nav-link" href="Feedback.php">Feedback</a>
             </li>
         </ul>
         <ul class = "navbar-nav ml-auto">
@@ -29,9 +47,13 @@
             <li class = "dropdown">
                 <a class="dropdown-toggle nav-link"  data-toggle ="dropdown" href="products_guest.php"><span class = "caret">Products</span></a>
                 <div class ="dropdown-menu">
-                    <a class="dropdown-item" href ="products_guest.php?id=Iphone">Iphone</a>
-                    <a class="dropdown-item" href ="products_guest.php?id=Samsung">Samsung</a>
-                    <a class="dropdown-item" href ="products_guest.php?id=BKAV">BKAV</a>
+                    <?php
+                    foreach ($category as $ap)
+                    {
+                        $name = $ap['name'];
+                        ?>
+                    <a class="dropdown-item" href ="products_guest.php?id=<?php echo $name?>"><?php echo $name?></a>
+                    <?php }?>
                 </div>
             </li>
             <li class = "nav-item">

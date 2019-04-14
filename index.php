@@ -23,7 +23,7 @@ function create_products_table ()
 {
     global $link;
     $items = array();
-    $sql = "SELECT * FROM products";
+    $sql = "SELECT * FROM `products`";
     $result = mysqli_query($link, $sql);
 
     while ($ar = mysqli_fetch_assoc($result)){

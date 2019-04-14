@@ -1,12 +1,29 @@
 <?php include('header_admin.php');
 require_once "config.php";
 
+$ID = $_GET['id'];
+
+foreach ($category as $ap) {
+    $name = $ap['name'];
+    //if ($id !== $name) {
+    //  $sql_products = "SELECT * FROM `products`";
+    switch ($ID){
+        case $name:
+            $sql_products = "SELECT * FROM `products` INNER JOIN `categories` WHERE categories.id = products.cat_id AND categories.name = '$name'";
+            break;
+        case "":
+            $sql_products = "SELECT * FROM `products`";
+            break;
+    }
+}
+
+
 function get_product_details ()
 {
     global $link;
+    global $sql_products;
     $items = array();
-    $sql = "SELECT * FROM products";
-    $result = mysqli_query($link, $sql);
+    $result = mysqli_query($link, $sql_products);
 
     while ($ar = mysqli_fetch_assoc($result)){
         $items[] = $ar;

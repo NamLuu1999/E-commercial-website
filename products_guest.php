@@ -5,19 +5,23 @@ session_start();
 
 // Store data in session variable
 $_SESSION["inventory_unlogged"] = 1;
-
-$id = $_GET['id'];
-
-if ($id == 'Iphone'){
-    $sql_products = "SELECT * FROM `products` INNER JOIN `categories` WHERE categories.id = products.cat_id AND categories.name = 'Iphone'";
-}   elseif ($id == 'Samsung'){
-    $sql_products = "SELECT * FROM `products` INNER JOIN `categories` WHERE categories.id = products.cat_id AND categories.name = 'Samsung'";
-}   elseif ($id == 'BKAV'){
-    $sql_products = "SELECT * FROM `products` INNER JOIN `categories` WHERE categories.id = products.cat_id AND categories.name = 'BKAV'";
-}   else {
-    $sql_products = "SELECT * FROM `products`";
+$ID = $_GET['id'];
+?>
+<?php include('header_guest.php');
+$category = get_category();
+foreach ($category as $ap) {
+    $name = $ap['name'];
+    //if ($id !== $name) {
+      //  $sql_products = "SELECT * FROM `products`";
+     switch ($ID){
+         case $name:
+            $sql_products = "SELECT * FROM `products` INNER JOIN `categories` WHERE categories.id = products.cat_id AND categories.name = '$name'";
+            break;
+         case "":
+             $sql_products = "SELECT * FROM `products`";
+             break;
+     }
 }
-
 function get_product_details ()
 {
     global $link;
@@ -30,7 +34,6 @@ function get_product_details ()
     return $items;
 }
 ?>
-<?php include('header_guest.php'); ?>
 
 <div class ="row">
 <?php

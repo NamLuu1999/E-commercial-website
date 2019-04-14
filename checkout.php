@@ -12,49 +12,59 @@ function mysql_get_var($query,$y=0){
     return $record;
 }
 
+function get_product ($query)
+{
+    global $link;
+    $items = array();
+    $result = mysqli_query($link, $query);
+
+    while ($ar = mysqli_fetch_assoc($result)){
+        $items[] = $ar;
+    }
+    return $items;
+}
+
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $ordered_qty = $_POST["ordered_qty"];
     $product_name = $_POST["product_name"];
     $unique_id = $_SESSION['unique_id'];
-
-    $product_id = mysql_get_var("SELECT `id` FROM `products` WHERE `name` = '$product_name'");
     $order_id = mysql_get_var("SELECT `id` FROM `orders` WHERE `unique_id` = '$unique_id'");
 
-    $sql = "INSERT INTO `order_items`(`orders_id`,`product_id`,`ordered_quantity`) VALUES ('$order_id','$product_id','$ordered_qty')";
-    $conn = mysqli_query($link, $sql);
-    if(!$conn){
-        echo mysqli_error($link) or die (mysqli_error($link));
-    }else{
+for ($i = 0; $i < count($product_name); $i++) {
+    $product_ids = get_product("SELECT `id` FROM `products` WHERE `name` = '$product_name[$i]'");
+    foreach ($product_ids as $ap) {
+        $product_id = $ap['id'];
 
-        header ("Location: products_member.php");
-    }
+        $sql = "INSERT INTO `order_items` (`orders_id`,`product_id`,`ordered_quantity`) VALUES ('$order_id','$product_id','$ordered_qty[$i]')";
+        $conn = mysqli_query($link, $sql);
+        if(!$conn){
+            echo mysqli_error($link) or die (mysqli_error($link));
+        }else{
+            $sql_get_quantity = "SELECT `quantity` FROM `products` WHERE `name` = '$product_name[$i]'";
+            $result = mysqli_query($link, $sql_get_quantity);
+            if (mysqli_num_rows($result) > 0)
+            {
+                while($row = mysqli_fetch_assoc($result))
+                {
+                    $inventory_qty = $row['quantity'];
+                }
+            }
+
+            $update_qty = $inventory_qty - $ordered_qty[$i];
+
+            $sql_update = "UPDATE `products` SET `quantity`= '$update_qty' WHERE `name` = '$product_name[$i]'";
+            $res = mysqli_query($link,$sql_update);
+            if (!res){
+                echo mysqli_error($link) or die (mysqli_error($link));
+            } else {
+                unset($_SESSION['cart12']);
+                header ("Location: products_member.php");
+            }
+    }}
 }
-
-
-/**
-// Query the users database and assigned it to an array
-function get_customer_info ()
-{
-    global $link;
-    $data = array();
-    $sql = "SELECT first_name, last_name, email, postal_code FROM users WHERE username = '{$_SESSION['username']}'";
-    $result = mysqli_query($link, $sql);
-
-    while ($row = mysqli_fetch_assoc($result)){
-        $data[] = $row;
-    }
-    return $data;
 }
-// Assign each column of data into a variable
-$info = get_customer_info();
-foreach ($info as $ap) {
-    $name = $ap['first_name'] .' '. $ap['last_name'];
-    $postal_code = $ap['postal_code'];
-    $email = $ap['email'];
-}
-**/
 
 // Create a cart array if needed
 if (empty($_SESSION['cart'])) { $_SESSION['cart'] = array(); }
@@ -76,9 +86,6 @@ if (empty($_SESSION['cart'])) { $_SESSION['cart'] = array(); }
                     <!--Cart section-->
                     <div class="panel panel-default">
                         <div class="panel-heading text-center"><h4>Current Cart</h4></div>
-                        <?php   echo $unique_id;
-                        ?>
-
                         <div class="panel-body">
                             <table class="table borderless">
                                 <thead>
@@ -101,12 +108,12 @@ if (empty($_SESSION['cart'])) { $_SESSION['cart'] = array(); }
                                             <a class="thumbnail pull-left" href="#"> <img class="media-object" src="images/<?php $item['image'] ?>" style="width: 72px; height: 72px;"> </a>
                                             <div class="media-body">
                                                 <h5 class="media-heading"> <?php echo $item['name']; ?></h5>
-                                                <input type="hidden" name="product_name" value="<?php echo $item['name']; ?>">
+                                                <input type="hidden" name="product_name[]" value="<?php echo $item['name']; ?>">
                                             </div>
                                         </div>
                                     </td>
                                     <td class="text-center">$<?php echo $cost; ?></td>
-                                    <td class="text-center"><?php echo $item['qty']; ?> <input type="hidden" name="ordered_qty" value="<?php echo $item['qty']; ?>"></td>
+                                    <td class="text-center"><?php echo $item['qty']; ?> <input type="hidden" name="ordered_qty[]" value="<?php echo $item['qty']; ?>"></td>
                                     <td class="text-right">$<?php echo $total; ?></td>
                                 </tr>
                                 <?php endforeach;  ?>

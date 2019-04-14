@@ -13,11 +13,12 @@ require_once "config.php";
 $product_name=  '';
 $add_err= $subtract_err= $blank_err = '';
 $inventory_qty= $add_qty= $subtract_qty= $update_qty= $difference_qty = 0;
+
 function get_product_details ()
 {
     global $link;
     $items = array();
-    $sql = "SELECT name FROM products";
+    $sql = "SELECT `name` FROM `products`";
     $result = mysqli_query($link, $sql);
 
     while ($ar = mysqli_fetch_assoc($result)){
@@ -73,8 +74,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     {
         $update_qty = $difference_qty + $inventory_qty;
     }
-
-
 
     $sql1 = "UPDATE `products` SET `quantity`= '$update_qty' WHERE `name` = '$product_name'";
     if ($subtract_err == '' && $add_err =='' && $blank_err =='')

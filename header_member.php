@@ -1,4 +1,5 @@
 <?php
+require_once 'config.php';
 if(!isset($_SESSION))
 {
     session_start();
@@ -7,6 +8,21 @@ if (empty($_SESSION["username"]))
     header("Location: home_guest.php");
 if ($_SESSION["username"] == 'admin')
     header("Location: home_admin.php");
+
+function get_category ()
+{
+    global $link;
+    $cat_names = array();
+    $sql_category = "SELECT `name` FROM `categories`";
+    $result = mysqli_query($link, $sql_category);
+
+    while ($ar = mysqli_fetch_assoc($result)){
+        $cat_names[] = $ar;
+    }
+    return $cat_names;
+}
+
+$category = get_category();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,9 +32,11 @@ if ($_SESSION["username"] == 'admin')
     <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.css">
     <link href="style.css" rel="stylesheet" type="text/css">
-
-
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <style>
+        .dropdown:hover>.dropdown-menu {
+            display: block;
+        }
+    </style>
     <script src="bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
 </head>
 <body>
@@ -39,8 +57,17 @@ if ($_SESSION["username"] == 'admin')
                     <a class="dropdown-item" href ="logout.php">Sign Out</a>
                 </div>
             </li>
-            <li class = "nav-item">
-                <a class="nav-link" href="products_member.php">Products</a>
+            <li class = "dropdown">
+                <a class="dropdown-toggle nav-link"  data-toggle ="dropdown" href="products_member.php"><span class = "caret">Products</span></a>
+                <div class ="dropdown-menu">
+                    <?php
+                    foreach ($category as $ap)
+                    {
+                        $name = $ap['name'];
+                        ?>
+                        <a class="dropdown-item" href ="products_member.php?id=<?php echo $name?>"><?php echo $name?></a>
+                    <?php }?>
+                </div>
             </li>
             <li class="nav-item"><a class="nav-link" href=".?action=show_cart">View Cart</a></li>
 
