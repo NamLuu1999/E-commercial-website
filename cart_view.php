@@ -1,9 +1,11 @@
 <?php include("header_cart.php"); ?>
 
+    <div class="the_cart">
     <h1>Your Cart</h1>
     <?php if (empty($_SESSION['cart12']) || count($_SESSION['cart12']) == 0) : ?>
         <p>There are no items in your cart.</p>
     <?php else: ?>
+
         <form action="." method="post" style="padding-top: 100px">
             <input type="hidden" name="action" value="update">
             <table>
@@ -52,6 +54,7 @@
     <p><a href=".?action=show_add_item">Add Item</a></p>
     <p><a href=".?action=empty_cart">Empty Cart</a></p>
     <p><a href=".?action=check_out">Check out</a></p>
+    </div>
 
 
 

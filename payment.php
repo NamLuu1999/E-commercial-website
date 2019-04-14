@@ -132,7 +132,7 @@ if (!isset($_SESSION['cart12'])){
         </div>
 
         <div class="form-group">
-            <input type="submit" name= "action" class="btn btn-primary" value="Pay now">
+            <input type="submit" name= "action" class="btn btn-primary" value="Continue">
         </div>
     </form>
     <script>

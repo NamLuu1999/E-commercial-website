@@ -1,6 +1,8 @@
 <?php
 require_once 'config.php';
-if(!isset($_SESSION))
+
+//if(!isset($_SESSION))
+if (session_status() == PHP_SESSION_NONE)
 {
     session_start();
 }
@@ -64,9 +66,9 @@ $category = get_category();
                     <?php
                     foreach ($category as $ap)
                     {
-                        $name = $ap['name'];
+                        $cat_name = $ap['name'];
                         ?>
-                        <a class="dropdown-item" href ="products_member.php?id=<?php echo $name?>"><?php echo $name?></a>
+                        <a class="dropdown-item" href ="products_member.php?id=<?php echo $cat_name?>"><?php echo $cat_name?></a>
                     <?php }?>
                 </div>
             </li>

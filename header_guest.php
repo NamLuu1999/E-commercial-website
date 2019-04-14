@@ -50,11 +50,11 @@ $category = get_category();
                 <a class="dropdown-toggle nav-link"  data-toggle ="dropdown" href="products_guest.php"><span class = "caret">Products</span></a>
                 <div class ="dropdown-menu">
                     <?php
-                    foreach ($category as $ap)
+                    foreach ($category as $arr)
                     {
-                        $name = $ap['name'];
+                        $cat_name = $arr['name'];
                         ?>
-                    <a class="dropdown-item" href ="products_guest.php?id=<?php echo $name?>"><?php echo $name?></a>
+                    <a class="dropdown-item" href ="products_guest.php?id=<?php echo $cat_name?>"><?php echo $cat_name?></a>
                     <?php }?>
                 </div>
             </li>

@@ -60,7 +60,7 @@ for ($i = 0; $i < count($product_name); $i++) {
                 echo mysqli_error($link) or die (mysqli_error($link));
             } else {
                 unset($_SESSION['cart12']);
-                header ("Location: products_member.php");
+                header ("Location: thank_you.php");
             }
     }}
 }
@@ -105,7 +105,6 @@ if (empty($_SESSION['cart'])) { $_SESSION['cart'] = array(); }
                                 <tr>
                                     <td class="col-md-3">
                                         <div class="media">
-                                            <a class="thumbnail pull-left" href="#"> <img class="media-object" src="images/<?php $item['image'] ?>" style="width: 72px; height: 72px;"> </a>
                                             <div class="media-body">
                                                 <h5 class="media-heading"> <?php echo $item['name']; ?></h5>
                                                 <input type="hidden" name="product_name[]" value="<?php echo $item['name']; ?>">

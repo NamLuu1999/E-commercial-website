@@ -180,7 +180,7 @@ function test_input($data) {
 <?php include('header_guest.php');?>
 <body>
 <main class="container-fluid justify-content-center">
-    <div class="wrapper container-fluid">
+    <div class="wrapper container-fluid" style="padding: 100px 0;">
         <h2>Sign Up</h2>
         <p>Please fill this form to create an account.</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">

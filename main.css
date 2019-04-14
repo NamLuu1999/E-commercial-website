@@ -68,7 +68,7 @@ label {
 }
 
 td, th {
-    padding: .25em 0;
+    padding: .25em 2em;
 }
 br {
     clear: both;
@@ -93,4 +93,12 @@ br {
 .cart_qty {
     text-align: right;
     width: 3em;
+}
+
+.the_cart {
+    position: relative;
+    left: 30%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }

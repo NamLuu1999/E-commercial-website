@@ -2,8 +2,16 @@
      if (!isset($name)) { $name = ''; };
      if (!isset($email)) { $email = ''; };
      if (!isset($comment)) { $comment = ''; };
+if (session_status() == PHP_SESSION_NONE)
+{
+    session_start();
+}
+if (empty($_SESSION["username"])) {
+    include('header_guest.php');
+}   else {include ('header_member.php');
+}
 ?>
-<?php include('header_member.php');?>
+
 <!DOCTYPE html>
 
 <div class="wrapper">

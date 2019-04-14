@@ -7,12 +7,12 @@ require_once "config.php";
 $ID = $_GET['id'];
 
 foreach ($category as $ap) {
-    $name = $ap['name'];
-    //if ($id !== $name) {
-    //  $sql_products = "SELECT * FROM `products`";
+    $cat_name = $ap['name'];
     switch ($ID){
-        case $name:
-            $sql_products = "SELECT * FROM `products` INNER JOIN `categories` WHERE categories.id = products.cat_id AND categories.name = '$name'";
+        case $cat_name:
+            $sql_products = "SELECT products.id, products.name, products.image, products.price, products.quantity 
+            FROM `products` INNER JOIN `categories` 
+            WHERE categories.id = products.cat_id AND categories.name = '$cat_name'";
             break;
         case "":
             $sql_products = "SELECT * FROM `products`";
